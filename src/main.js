@@ -3,6 +3,8 @@ import App from './App.vue'
 import router from './router/index.js'
 
 import '@/styles/reset.css'
+import { Toast } from 'vant'
+Vue.use(Toast)
 
 Vue.config.productionTip = false
 

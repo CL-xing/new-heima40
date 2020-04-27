@@ -43,7 +43,7 @@ export default {
         // 响应文本框失去焦点
         handlerblur(event){
             if(this.rules &&!this.rules.test(event.target.value)){
-                console.log(this.msg_err);
+               this.$toast.fail(this.msg_err)
                 
             }
         }
