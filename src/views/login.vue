@@ -62,7 +62,10 @@ export default {
       userLogin(this.user)
       .then(res=>{
         console.log(res);
-        if(res.data.message === '登录成功'){      
+        if(res.data.message === '登录成功'){    
+            // 将当前的token存储，本地存储
+            localStorage.setItem('heima40_token',res.data.data.token)  
+            // 页面跳转
             this.$router.push({ path: `/personal/${res.data.data.user.id}` })
         }else{
           this.$toast.fail(res.data.message)
