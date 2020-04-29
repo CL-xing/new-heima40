@@ -24,7 +24,8 @@
        
           <hminput 
             placeholder="请输入密码"
-            
+            type ='password'
+            v-model="user.password"
           >
           </hminput>
       </div>
@@ -41,12 +42,14 @@
 //引入子组件并注册
 import hmbutton from '@/components/hm_button.vue'
 import hminput from '@/components/hm_input.vue'
+//引入登录api方法
+import {userLogin} from '@/api/users.js'
 export default {
   data () {
     return {
     user:{
-      username:'11',
-      password:'22'
+      username:'10086',
+      password:'123'
     }  
     }
   },
@@ -56,8 +59,19 @@ export default {
   },
   methods:{
     login(event){
-      // console.log(event);
-      console.log(this.user);
+      userLogin(this.user)
+      .then(res=>{
+        console.log(res);
+        if(res.data.message === '登录成功'){      
+            this.$router.push({ path: `/personal/${res.data.data.user.id}` })
+        }else{
+          this.$toast.fail(res.data.message)
+        }
+      })
+      .catch(err=>{
+        console.log(err);
+          this.$toast.fail('登陆失败，请重试')
+      })
     },
     // hanlderinput(data){
     //     // console.log(data);

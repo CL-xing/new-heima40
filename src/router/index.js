@@ -4,6 +4,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Login from '../views/login.vue'
+import Personal from '@/views/Personal.vue'
 //挂载路由
 Vue.use(VueRouter)
 
@@ -14,6 +15,11 @@ const router = new VueRouter({
             name:'login',
             path:'/login',
             component:Login
+        },
+        {
+            name:'personal',
+            path:'/personal/:id',
+            component:Personal
         }
     ]
   })
