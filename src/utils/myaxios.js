@@ -2,7 +2,8 @@ import axios from 'axios'
 import { Toast } from 'vant'
 
 //配置基准路径
-axios.defaults.baseURL = 'http://localhost:3000'
+axios.defaults.baseURL = 'http://localhost:3000';
+localStorage.setItem('hm40_baseURL',axios.defaults.baseURL)
 
 
 // 添加请求拦截器
