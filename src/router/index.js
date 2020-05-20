@@ -5,10 +5,11 @@ import VueRouter from 'vue-router'
 
 import Login from '../views/Login.vue'
 import Personal from '@/views/Personal.vue'
+import EditPersonal from '../views/editPersonal.vue'
 //挂载路由
 Vue.use(VueRouter)
 
-//创建路由对象
+//创建路由对象,并配置路由对象
 const router = new VueRouter({
     routes:[
         {
@@ -20,6 +21,11 @@ const router = new VueRouter({
             name:'personal',
             path:'/personal/:id',
             component:Personal
+        },
+        {
+            name:'EditPersonal',
+            path:'/editPersonal/:id',
+            component:EditPersonal
         }
     ]
   })

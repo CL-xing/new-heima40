@@ -10,7 +10,7 @@ export const userLogin = (data) =>{
         data
     })
 }
-
+//3.实现用户详情
 export const getUserInfo = (id) =>{
     return axios({
          // 我们当前所请求的api是需要授权的api,所以要根据后台的要求传入用户状态
@@ -20,5 +20,14 @@ export const getUserInfo = (id) =>{
     //   Authorization: localStorage.getItem('heima_40_token')
     // },
         url:`/user/${id}`
+    })
+}
+
+//4.编辑用户信息
+export const editUser = (id,data) =>{
+    return axios({
+        method:'post',
+        url:`/user_update/${id}`,
+        data
     })
 }
